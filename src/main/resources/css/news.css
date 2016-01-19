@@ -1,0 +1,251 @@
+/******************************************************************************
+*  newsSummary
+******************************************************************************/
+
+ ul.newsSummary {
+    margin: 0;
+    padding: 0;
+    background-image: none;
+    height: 1%;
+    list-style: none;
+
+}
+ .newsSummary p {
+    margin: 0 ;
+	padding:0;
+}
+ .newsSummary li {
+    margin: 0;
+    padding:0;
+    background-image: none;
+    width: 100%;
+    list-style: none;
+}
+ div.newsSummary {
+    margin: 0 0 0.5em 0;
+    padding: 0.5em 0;
+    background-image: none;
+    width: 100%;
+    border-bottom: 1px solid #eaeaea;
+    list-style: none;
+}
+ .newsSummary h4 a,
+     .newsSummary h4 a:link,
+     .newsSummary h4 a:visited {
+    text-decoration: none;
+}
+
+ .newsSummary h4 a:hover,
+     .newsSummary h4 a:active {
+    text-decoration: underline;
+}
+
+ .newsSummary h4 {
+    font-size: 1em;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+    border-bottom: none
+}
+
+ .newsSummary img {
+    float: left;
+    margin-right: 0.5em;
+    padding: 0;
+    border: 1px solid #cccccc;
+    width: 50px;
+    height: 50px;
+}
+
+ .newsSummary .newsSummaryresume {
+    line-height: normal;
+    font-size: 90%;
+    margin: 0;
+    padding: 0;
+}
+/******************************************************************************
+*  News generic
+******************************************************************************/
+ p.newsInfo {
+    font-size: 90%;
+    margin: 0.5em 0;
+    padding: 0.5em;
+    line-height: 1em;
+    font-weight: bold;
+    border-bottom: 1px solid #EAEAEA;
+    border-top: 1px solid #EAEAEA;
+}
+
+ .newsImg {
+    float: left;
+    margin-right: 0.5em;
+    padding: 0;
+}
+
+ .newsImg img {
+    border: 1px solid #eaeaea;
+    margin-right: 0.5em;
+    padding: 0;
+}
+
+ .newsimg-right {
+    float: right;
+    margin-left: 0.5em;
+    padding: 0;
+}
+
+ .newsimg-right img {
+    border: 1px solid #eaeaea;
+    margin-left: 0.5em;
+    padding: 0;
+}
+
+ .newsMeta {
+    clear: both;
+    font-size: 80%;
+    color: #333;
+    margin: 0.5em 0;
+}
+
+ .newsMeta a,
+     .newsMeta a:link,
+     .newsMeta a:visited {
+    color: #333;
+    text-decoration: none;
+}
+
+ .newsMeta a:hover,
+     .newsMeta a:active {
+    text-decoration: underline;
+}
+
+ span.newsLabelName,
+     span.newsLabelDate,
+     span.newsLabelLocation {
+    color: #333333;
+}
+
+ span.newsName,
+     span.newsDate,
+     span.newsLocation {
+    color: #333333;
+}
+
+/******************************************************************************
+*  News List
+******************************************************************************/
+ .newsList {
+    clear: both;
+}
+
+ .newsTitle {
+    float: left;
+}
+
+ div.newsRss {
+    float: right;
+    color: #333333;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0.4em 0.5em 0.4em 0.5em;
+    padding: 0;
+}
+
+ .newsRss a,
+     .newsRss a:link,
+     .newsRss a:visited {
+    color: #990000;
+    text-decoration: none;
+    background: none;
+    background: url( img/newsrss.png ) no-repeat top right;
+    padding-right: 20px;
+}
+
+ .newsRss a:hover,
+     .newsRss a:active {
+    color: #990000;
+    text-decoration: underline;
+}
+
+ .newsList h3 {
+    margin: 0 0 0.5em 0;
+}
+
+ .newsListItem {
+    border-bottom: 1px solid #eaeaea;
+    margin-bottom: 1em;
+	padding-bottom: 1em;
+    clear: both;
+    width: 100%;
+    position: relative;
+}
+
+ .newsListItem p {
+    margin-top: 0.5em;
+}
+
+ .newsListItem h4 {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: 2em;
+    font-weight: normal;
+	line-height:1em;
+}
+
+ .newsListItem h4 a,
+     .newsListItem h4 a:link,
+     .newsListItem h4 a:visited {
+    color: #333333;
+    text-decoration: none;
+    background: none;
+}
+
+ .newsListItem h4 a:hover,
+     .newsListItem h4 a:active {
+    color: #990000;
+    text-decoration: underline;
+    background: none;
+}
+
+ .newsListItem .newsResume {
+    text-align: justify;
+    margin: 0;
+}
+
+ .newsListItem .newsMore {
+    font-size: 80%;
+    font-size: 11px;
+    font-weight: bold;
+    float: right;
+    line-height: 14px;
+}
+
+/******************************************************************************
+*  News Item
+******************************************************************************/
+ .newsItem.newsResume {
+    font-weight: bold;
+    margin: 0;
+}
+
+ .newsItem .newsInfo {
+    margin-bottom: 1em;
+}
+
+ .relatedNews {
+    width: 30%;
+    float: right;
+    margin: 0.5em;
+}
+
+ .relatedNews h3 {
+    line-height: 2em;
+    color: #333333;
+}
+ span.categorytitle {
+	background:transparent url(img/categorytitle.png) no-repeat scroll 0 50%;
+	display:inline;
+	margin-right:8px;
+	padding:5px 0 5px 18px;
+}
