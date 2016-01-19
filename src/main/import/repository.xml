@@ -13,12 +13,14 @@
                     <src jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:folder">
                         <main jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:folder">
                             <resources jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:folder">
-                                <snt_news jcr:mixinTypes="jmix:sourceControl"
-                               jcr:primaryType="jnt:nodeTypeFolder">
+                                <snt_news jcr:primaryType="jnt:nodeTypeFolder">
                                     <html jcr:primaryType="jnt:templateTypeFolder">
                                         <news.detail.jsp jcr:primaryType="jnt:viewFile"/>
                                     </html>
                                 </snt_news>
+                                <META-INF jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:metaInfFolder">
+                                    <rules.drl jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:editableFile"/>
+                                </META-INF>
                             </resources>
                         </main>
                     </src>
