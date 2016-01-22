@@ -87,7 +87,7 @@
 <div class="share-buttons">
         <div class="mail">
           <a href="mailto:emailadresse?subject=Interessanter%20Artikel&amp;body=Habe%20einen%20interessanten%20Artikel%20auf%20der%20Website%20der%20Pfarrei%20Heiliger%20Martin%20Kaiserslautern%20gefunden%3A%0A%0Ahttps%3A%2F%2Fheiliger-martin-kaiserslautern.de${linkUrl}%0A%0A"><img  
-          src="/files/live/sites/hlmartin/files/bootstrap/img/per-email-share-button.png" alt="Link zum Artikel per E-Mail versenden" width="87" height="20"/></a> 
+          src="<c:url value="/files/${workspace}/${renderContext.site.path}/files/bootstrap/img/per-email-share-button.png"/>" alt="Link zum Artikel per E-Mail versenden" width="87" height="20"/></a>
         </div>
         <div class="fb-share-button" data-href="${linkUrl}" data-layout="button_count"></div>
 </div>

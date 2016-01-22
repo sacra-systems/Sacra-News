@@ -80,7 +80,7 @@
   </parent>
   <groupId>org.jahia.modules</groupId>
   <artifactId>sacra-news</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.1-SNAPSHOT</version>
   <packaging>bundle</packaging>
   <name>Sacra News</name>
   <description>This is the custom module (Sacra News) for running on a Digital Factory server.</description>

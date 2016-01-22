@@ -8,24 +8,23 @@
 <snt = 'http://sacra.systems/jahia/nt/1.0'>
 <smix = 'http://sacra.systems/jahia/mix/1.0'>
 
-
 [snt:news] > jnt:content, mix:title, jmix:editorialContent, jmix:structuredContent
  - jcr:title (string) i18n mandatory
  - desc (string, richtext) i18n
  - image (weakreference, picker[type='image'])
  - imageTitle (string) i18n
  - date (date) = now()
- - sortingDate (date) = now() hidden nofulltext
+ - sortingDate (date) = now() nofulltext
  - republishDate1 (date)
  - republishDate2 (date)
  - republishDate3 (date)
- - isRePublished1 (boolean) = false indexed=no hidden nofulltext
- - isRePublished2 (boolean) = false indexed=no hidden nofulltext
- - isRePublished3 (boolean) = false indexed=no hidden nofulltext
-
-
+ - isRePublished1 (boolean) indexed=no hidden nofulltext
+ - isRePublished2 (boolean) indexed=no hidden nofulltext
+ - isRePublished3 (boolean) indexed=no hidden nofulltext
 
 [snt:lastNews] > jnt:content, jmix:list, mix:title, jmix:queryContent, jmix:cache
   - maxNews (long) = 10 indexed=no
-  - filter (weakreference, category[autoSelectParent=false])
-  - j:subNodesView (string, choicelist[templates=scr:news,resourceBundle,image]) nofulltext itemtype = layout
+  - j:subNodesView (string, choicelist[templates=snt:news,resourceBundle,image]) nofulltext itemtype = layout
+  - orderBy (string, choicelist[resourceBundle]) = 'sortingDate' autocreated indexed=no < 'sortingDate', 'date'
+  - j:sortDirection (string, choicelist[resourceBundle]) = 'asc' autocreated indexed=no < 'asc','desc'
+  - j:filter (weakreference, category[autoSelectParent=false]) multiple

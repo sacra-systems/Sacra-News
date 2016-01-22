@@ -1,10 +1,11 @@
-package org.jahia.modules.sacra-news.rules
+package org.jahia.modules.sacra_news.rules
 
 // list any import classes here.
 import org.jahia.services.content.rules.*
 import org.jahia.services.content.JCRContentUtils
 import org.jahia.modules.seo.rules.SeoService
 import org.slf4j.Logger
+import org.jahia.services.content.JCRValueWrapper
 
 expander rules.dsl
 
@@ -15,8 +16,8 @@ global Logger logger
 global SeoService seoService
 global JCRContentUtils jcrUtils
 
-
-rule "Add generated URL mapping for extended news item"
+/* RVT: Not sure if you needed this, it has been commented out in the original news
+rule "Add generated URL mapping for Sacra news item"
     salience 25
     when
         A property jcr:title has been set on a node
@@ -26,4 +27,14 @@ rule "Add generated URL mapping for extended news item"
         Log "Adding URL mapping '" + "/news/" + jcrUtils.generateNodeName(propertyValueAsString, 70) + "' for node " + parent.getPath() + " in language " + node.getProperty("jcr:language").getStringValue()
         Remove URL mappings for node parent and language node.getProperty("jcr:language").getStringValue()
         Add URL mapping "/news/" + jcrUtils.generateNodeName(propertyValueAsString, 70) for node parent and language node.getProperty("jcr:language").getStringValue()
+end
+*/
+
+rule "Set sortingDate on snt:news if date changes"
+    when
+        A property date has been set on a node
+         - the node has the type snt:news
+    then
+        Set the property sortingDate of the node with the value of ((JCRValueWrapper)property.getValue()).getDate()
+        Log "Copy date to sortingDate"
 end

@@ -7,18 +7,27 @@
 <%@ taglib prefix="query" uri="http://www.jahia.org/tags/queryLib" %>
 
 <jcr:nodeProperty node="${currentNode}" name="maxNews" var="maxNews"/>
-<jcr:nodeProperty node="${currentNode}" name="filter" var="filter"/>
-<c:choose>
-<c:when test="${empty filter.string}">
-    <c:set var="lastNewsStatement" value="select * from [jnt:news] as news where ISDESCENDANTNODE(news,'${currentNode.resolveSite.path}') order by news.[date] desc"/>
-</c:when>
-<c:otherwise>
-    <c:set var="lastNewsStatement" value="select * from [jnt:news] as news where ISDESCENDANTNODE(news,'${currentNode.resolveSite.path}') and news.[j:defaultCategory]='${filter.string}' order by news.[date] desc"/>
-</c:otherwise>
-</c:choose>
-<query:definition var="listQuery" statement="${lastNewsStatement}" limit="${maxNews.long}"  />
+<jcr:nodeProperty node="${currentNode}" name="orderBy" var="orderBy"/>
+<jcr:nodeProperty node="${currentNode}" name="j:filter" var="filters"/>
+<jcr:nodeProperty node="${currentNode}" name='j:sortDirection' var="sortDirection"/>
 
-<c:set target="${moduleMap}" property="editable" value="false" />
+<query:definition var="listQuery" limit="${currentResource.moduleParams.queryLoadAllUnsorted == 'true' ? -1 : maxNews.long}">
+    <query:selector nodeTypeName="snt:news"/>
+    <query:descendantNode path="${currentNode.resolveSite.path}"/>
+
+    <query:or>
+        <c:forEach var="filter" items="${filters}">
+            <c:if test="${not empty filter.string}">
+                <query:equalTo propertyName="j:defaultCategory" value="${filter.string}"/>
+            </c:if>
+        </c:forEach>
+    </query:or>
+
+    <query:sortBy propertyName="sortingDate" order="${sortDirection.string}"/>
+</query:definition>
+
+<%-- ${listQuery.statement} --%>
+<c:set target="${moduleMap}" property="editable" value="false"/>
 <c:set target="${moduleMap}" property="emptyListMessage"><fmt:message key="label.noNewsFound"/></c:set>
-<c:set target="${moduleMap}" property="listQuery" value="${listQuery}" />
-<c:set target="${moduleMap}" property="subNodesView" value="${currentNode.properties['j:subNodesView'].string}" />
+<c:set target="${moduleMap}" property="listQuery" value="${listQuery}"/>
+<c:set target="${moduleMap}" property="subNodesView" value="${currentNode.properties['j:subNodesView'].string}"/>
