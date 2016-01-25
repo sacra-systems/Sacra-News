@@ -16,19 +16,20 @@ global Logger logger
 global SeoService seoService
 global JCRContentUtils jcrUtils
 
-/* RVT: Not sure if you needed this, it has been commented out in the original news
+/* RVT: Not sure if you needed this, it has been commented out in the original news */
 rule "Add generated URL mapping for Sacra news item"
-    salience 25
+    salience 50
+    activation-group "seo_rules"
     when
+        Not in operation import
         A property jcr:title has been set on a node
-        The node has a parent
-            - the parent has the type snt:news
+         - the node has the type snt:news
     then
-        Log "Adding URL mapping '" + "/news/" + jcrUtils.generateNodeName(propertyValueAsString, 70) + "' for node " + parent.getPath() + " in language " + node.getProperty("jcr:language").getStringValue()
-        Remove URL mappings for node parent and language node.getProperty("jcr:language").getStringValue()
-        Add URL mapping "/news/" + jcrUtils.generateNodeName(propertyValueAsString, 70) for node parent and language node.getProperty("jcr:language").getStringValue()
+        Log "Adding URL mapping '" + "/news/" + jcrUtils.generateNodeName(propertyValueAsString, 70) + "' for node " + node.getPath() + " in language " + property.getLanguage()
+        Remove URL mappings for node node and language property.getLanguage()
+        Add URL mapping "/news/" + jcrUtils.generateNodeName(propertyValueAsString, 70) for node node and language property.getLanguage()
 end
-*/
+
 
 rule "Set sortingDate on snt:news if date changes"
     when
