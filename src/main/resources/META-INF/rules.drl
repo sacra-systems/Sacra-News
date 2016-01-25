@@ -30,7 +30,6 @@ rule "Add generated URL mapping for Sacra news item"
         Add URL mapping "/news/" + jcrUtils.generateNodeName(propertyValueAsString, 70) for node node and language property.getLanguage()
 end
 
-
 rule "Set sortingDate on snt:news if date changes"
     when
         A property date has been set on a node
