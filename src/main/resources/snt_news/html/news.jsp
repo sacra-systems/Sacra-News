@@ -81,7 +81,9 @@
          </c:otherwise>
        </c:choose>
       
-      <div class="meta">Unter <a href="${linkUrl}"><b>Details &rarr;</b></a> können Sie diese Nachricht auf Facebook teilen oder per Email versenden.</div>
+      <div class="meta">
+        ${user:fullName(currentUser)} am ${newsDay}. ${newsMonth}&nbsp;${newsYear}<br>
+        Unter <a href="${linkUrl}"><b>Details &rarr;</b></a> k&ouml;nnen Sie diese Nachricht auf Facebook teilen oder per Email versenden.</div>
             
   
   </div>

@@ -10,8 +10,8 @@
                 <sources jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
                   jcr:primaryType="jnt:moduleVersionFolder"
                   j:staticMountPointProviderKey="module-sacra-news-1.1-SNAPSHOT">
-                    <scripts jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:folder">
-                        <CopyNewsToSntnews.groovy jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:viewFile"/>
+                    <scripts jcr:primaryType="jnt:folder">
+                        <CopyNewsToSntnews.groovy jcr:primaryType="jnt:viewFile"/>
                     </scripts>
                     <src jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:folder">
                         <main jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:folder">
@@ -21,12 +21,12 @@
                                     <html jcr:mixinTypes="jmix:sourceControl"
                               jcr:primaryType="jnt:templateTypeFolder">
                                         <news.jsp jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:viewFile"/>
-                                        <news.detail.jsp jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:viewFile"/>
+                                        <news.detail.jsp jcr:primaryType="jnt:viewFile"/>
                                     </html>
                                 </snt_news>
-                                <META-INF jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:metaInfFolder">
-                                    <spring jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:folder">
-                                        <sacra-news.xml jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:xmlFile"/>
+                                <META-INF jcr:primaryType="jnt:metaInfFolder">
+                                    <spring jcr:primaryType="jnt:folder">
+                                        <sacra-news.xml jcr:primaryType="jnt:xmlFile"/>
                                     </spring>
                                     <rules.drl jcr:primaryType="jnt:editableFile"/>
                                 </META-INF>
