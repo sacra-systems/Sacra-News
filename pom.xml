@@ -88,6 +88,9 @@
     <connection>scm:git:https://github.com/sacra-systems/Sacra-News</connection>
     <developerConnection>scm:git:https://github.com/sacra-systems/Sacra-News</developerConnection>
   </scm>
+  <properties>
+    <jahia-depends>default,bootstrap-components,seo</jahia-depends>
+  </properties>
   <repositories>
     <repository>
       <releases>
@@ -109,9 +112,7 @@
         <artifactId>maven-bundle-plugin</artifactId>
         <extensions>true</extensions>
         <configuration>
-          <instructions>
-            <Jahia-Depends>default</Jahia-Depends>
-          </instructions>
+          <instructions />
         </configuration>
       </plugin>
     </plugins>

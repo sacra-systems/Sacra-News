@@ -1,5 +1,7 @@
 import org.jahia.api.Constants
+import org.jahia.api.user.JahiaUserService
 import org.jahia.services.content.*
+import org.jahia.services.usermanager.JahiaUserManagerService;
 
 import javax.jcr.NodeIterator
 import javax.jcr.RepositoryException
@@ -22,10 +24,12 @@ def copyProperty(JCRNodeWrapper to, JCRNodeWrapper from, String prop) {
     }
 }
 
-JCRTemplate.getInstance().doExecuteWithSystemSession(null, Constants.EDIT_WORKSPACE, Locale.GERMAN, new JCRCallback() {
+JCRUserNode user=JahiaUserManagerService.getInstance().lookupUser('root');
+
+JCRTemplate.getInstance().doExecuteWithSystemSession('root', Constants.EDIT_WORKSPACE, Locale.GERMAN, new JCRCallback() {
     public Object doInJCR(JCRSessionWrapper session) throws RepositoryException {
         JCRNodeWrapper newsStorage = session.getNode("/sites/hlmartin/contents/news");
-        Query q = session.getWorkspace().getQueryManager().createQuery("SELECT * FROM [jnt:news]", Query.JCR_SQL2);
+        Query q = session.getWorkspace().getQueryManager().createQuery("SELECT * FROM [jnt:news] WHERE isdescendantnode ('/sites/hlmartin/home')", Query.JCR_SQL2);
         NodeIterator ni = q.execute().getNodes();
         while (ni.hasNext()) {
             JCRNodeWrapper next = (JCRNodeWrapper) ni.next();
@@ -52,5 +56,4 @@ JCRTemplate.getInstance().doExecuteWithSystemSession(null, Constants.EDIT_WORKSP
         session.save();
     }
 });
-
 

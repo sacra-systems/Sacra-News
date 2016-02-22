@@ -1,12 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <content xmlns:j="http://www.jahia.org/jahia/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0">
     <modules jcr:primaryType="jnt:modules">
-        <sacra-news j:dependencies="default seo"
+        <sacra-news j:dependencies="bootstrap-components default seo"
                   j:modulePriority="0"
                   j:moduleType="module"
                   j:title="Sacra News"
                   jcr:mixinTypes="jmix:hasExternalProviderExtension"
                   jcr:primaryType="jnt:module">
+                <sources jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
+                  jcr:primaryType="jnt:moduleVersionFolder"
+                  j:staticMountPointProviderKey="module-sacra-news-1.1-SNAPSHOT">
+                    <scripts jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:folder">
+                        <CopyNewsToSntnews.groovy jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:viewFile"/>
+                    </scripts>
+                    <src jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:folder">
+                        <main jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:folder">
+                            <resources jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:folder">
+                                <snt_news jcr:mixinTypes="jmix:sourceControl"
+                               jcr:primaryType="jnt:nodeTypeFolder">
+                                    <html jcr:mixinTypes="jmix:sourceControl"
+                              jcr:primaryType="jnt:templateTypeFolder">
+                                        <news.jsp jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:viewFile"/>
+                                        <news.detail.jsp jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:viewFile"/>
+                                    </html>
+                                </snt_news>
+                                <META-INF jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:metaInfFolder">
+                                    <spring jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:folder">
+                                        <sacra-news.xml jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:xmlFile"/>
+                                    </spring>
+                                    <rules.drl jcr:primaryType="jnt:editableFile"/>
+                                </META-INF>
+                            </resources>
+                        </main>
+                    </src>
+                </sources>
                 
                 <portlets jcr:primaryType="jnt:portletFolder"/>
                 <files jcr:primaryType="jnt:folder"/>
@@ -24,22 +51,6 @@
                             <main-resource-display j:mainResourceView="default" jcr:primaryType="jnt:mainResourceDisplay"/>
                         </pagecontent>
                     </news-template>
-                    <news-template-1 j:applyOn="snt:news"
-                             j:defaultTemplate="true"
-                             j:hiddenTemplate="true"
-                             j:priority="200"
-                             j:view="default"
-                             j:workInProgress="false"
-                             jcr:primaryType="jnt:contentTemplate">
-                        <pagecontent jcr:primaryType="jnt:contentList">
-                            <main-resource-display j:mainResourceView="default" jcr:primaryType="jnt:mainResourceDisplay"/>
-                            <navigation-menu j:baselineNode="home"
-                                   j:maxDepth="2"
-                                   j:menuItemView="menuElement"
-                                   j:startLevel="0"
-                                   jcr:primaryType="jnt:navMenu"/>
-                        </pagecontent>
-                    </news-template-1>
                 </templates>
                 
             </sacra-news>

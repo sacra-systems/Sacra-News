@@ -52,7 +52,7 @@
     <div class="media-body">
         <h2 class="media-heading"><a href="${linkUrl}">${title.string}</a></h2>
       
-        <span >${newsDay}. ${newsMonth}&nbsp;${newsYear}</span>
+        <span >${newsDay}. ${newsMonth}&nbsp;${newsYear}</span><br clear=all>
         
         <c:if test="${! empty image}">          
                <a href="<c:url value="${image.node.url}" context="/"/>" data-lightbox="photoGallery" data-title="${imageTitle.string}"><img class="img-responsive newsListImage" src="<c:url value="${image.node.url}" context="/"/>" alt="${image.node.displayableName}"></a>          
@@ -81,15 +81,10 @@
          </c:otherwise>
        </c:choose>
       
-      <div class="share-buttons">
-        <div class="mail">
-          <a href="mailto:emailadresse?subject=Interessanter%20Artikel&amp;body=Habe%20einen%20interessanten%20Artikel%20auf%20der%20Website%20der%20Pfarrei%20Heiliger%20Martin%20Kaiserslautern%20gefunden%3A%0A%0Ahttps%3A%2F%2Fheiliger-martin-kaiserslautern.de${linkUrl}%0A%0A">
-              <img class="mailImg" src="<c:url value="/files/${workspace}/${renderContext.site.path}/files/bootstrap/img/per-email-share-button.png"/>" alt="Link zum Artikel per E-Mail versenden" width="87" height="20"/></a>
-        </div>
-        <div class="fb-share-button" data-href="${linkUrl}" data-layout="button_count"></div>
-      </div>
-
-    </div>
+      <div class="meta">Unter <a href="${linkUrl}"><b>Details &rarr;</b></a> können Sie diese Nachricht auf Facebook teilen oder per Email versenden.</div>
+            
+  
+  </div>
 </article>
 
 <br />

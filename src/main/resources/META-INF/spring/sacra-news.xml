@@ -16,7 +16,7 @@
             <bean class="org.quartz.CronTrigger">
                 <property name="name" value="ReorderNewsSchedulerJob2"/>
                 <!-- run once a day : http://www.cronmaker.com -->
-                <property name="cronExpression" value="0 0 0 1/1 * ? *"/>
+                <property name="cronExpression" value="0 0 0/1 1/1 * ? *"/>
             </bean>
         </property>
     </bean>

@@ -43,6 +43,7 @@
 <fmt:formatDate value="${newsDate.time}" pattern="d" var="newsDay"/>
 <fmt:formatDate value="${newsDate.time}" pattern="yyyy" var="newsYear"/>
 <jcr:nodeProperty var="image" node="${currentNode}" name="image"/>
+<c:url value='${url.base}${currentNode.path}.html' var="linkUrl" />
 
 <jcr:nodeProperty node="${currentNode}" name="j:defaultCategory" var="newsCategories"/>
 
@@ -53,11 +54,11 @@
     <div class="media-body"><h1>${title.string}</h1> </div>
   
     <span > ${newsDay}. ${newsMonth}&nbsp;${newsYear} &nbsp; ${user:fullName(currentUser)}</span>
-    </p><br>
+    <br clear=all>
   
 
     <c:if test="${! empty image}">
-        <figure><img src="<c:url value="${image.node.url}" context="/"/>" alt="${image.node.displayableName}"></figure>
+        <img class="img-responsive newsImage" src="<c:url value="${image.node.url}" context="/"/>" alt="${image.node.displayableName}">
     </c:if>
 
     <div class="media-text-big">
@@ -68,31 +69,30 @@
      
    </p>
 
+
+    <div class="meta">
     <!-- display categories applied on this news -->
     <c:if test="${!empty newsCategories }">
         <div class="newsMeta">
-            <span class="categoryLabel"><fmt:message key='label.categories'/> :</span>
+            <span class="categoryLabel"><fmt:message key='label.categories'/>:</span>
             <jcr:nodeProperty node="${currentNode}" name="j:defaultCategory" var="cat"/>
             <c:if test="${cat != null}">
                 <c:forEach items="${cat}" var="category">
-                    <span class="categorytitle">${category.node.displayableName}</span>
+                    <span class="categorytitle">${category.node.displayableName}</span> |
                 </c:forEach>
-
             </c:if>
         </div>
     </c:if>
+      
+   <br clear=all>
+   <div class="shariff" data-services="[&quot;facebook&quot;,&quot;mail&quot;,&quot;info&quot;]" data-mail-url="mailto:Email_Adresse_hier_eingeben@de" data-mail-subject="Interessanter Artikel auf der Website der Pfarrei Heiliger Martin Kaiserslautern" data-mail-body="Hallo, ich m&ouml;chte auf folgenden Artikel hinweisen: https://heiliger-martin-kaiserslautern.de${linkUrl} Liebe Gr&uuml;&szlig;e" data-backend-url="/shariff-backend/" data-url="https://heiliger-martin-kaiserslautern.de${linkUrl}" data-theme="standard" data-orientation="horizontal"></div>        
+      
+</div>
+
 </article>
 
 
-<div class="share-buttons">
-        <div class="mail">
-          <a href="mailto:emailadresse?subject=Interessanter%20Artikel&amp;body=Habe%20einen%20interessanten%20Artikel%20auf%20der%20Website%20der%20Pfarrei%20Heiliger%20Martin%20Kaiserslautern%20gefunden%3A%0A%0Ahttps%3A%2F%2Fheiliger-martin-kaiserslautern.de${linkUrl}%0A%0A"><img  
-          src="<c:url value="/files/${workspace}/${renderContext.site.path}/files/bootstrap/img/per-email-share-button.png"/>" alt="Link zum Artikel per E-Mail versenden" width="87" height="20"/></a>
-        </div>
-        <div class="fb-share-button" data-href="${linkUrl}" data-layout="button_count"></div>
-</div>
-
 
 <br><br>
-<a class="btn btn-primary" href="${action}" title="<fmt:message key="bootstrapComponents.news.back"/>">
-<i class="icon-chevron-left icon-white"></i> <fmt:message key="bootstrapComponents.news.back"/> </a>
+<a class="btn btn-primary" href="${action}" title="<fmt:message key="label.back"/>">
+<i class="icon-chevron-left icon-white"></i> <fmt:message key="label.back"/> </a>
